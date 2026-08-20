@@ -73,6 +73,24 @@ The SQLite database (`platform.db`) is created automatically on first run.
    - The **Interview Prep** tab
 4. Use the status dropdown on the match page to track your application.
 
+## Deploying publicly (Render)
+
+1. Push this repo to GitHub (see the "uploading to GitHub" steps above).
+2. Go to [render.com](https://render.com) and sign up (GitHub login works).
+3. **New +** → **Web Service** → connect your GitHub repo.
+4. Set:
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `gunicorn app:app` (already in the `Procfile`, Render usually detects it automatically)
+5. Add an environment variable `SECRET_KEY` set to any random string (Render can generate one).
+6. Click **Deploy**. You'll get a public URL like `https://your-app-name.onrender.com`.
+
+**Note on the database:** this MVP uses SQLite (`platform.db`), which is fine for
+a demo but is stored on the app's local disk. On Render's free tier that disk
+is wiped whenever the service restarts or redeploys, so profiles/tracker data
+won't persist long-term. That's fine for a course demo. If you need data to
+persist for real users, swap SQLite for Render's free PostgreSQL add-on later
+(only `database.py` needs to change).
+
 ## Extending this MVP
 
 - Swap the seed `data/internships.json` for a real internship-listing API or scraper.

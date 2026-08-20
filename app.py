@@ -14,6 +14,7 @@ Run with:  python app.py
 Then open  http://localhost:5000
 """
 
+import os
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from datetime import date
 
@@ -23,7 +24,7 @@ from services.cv_optimizer import analyze_cv
 from services.interview_prep import generate_interview_set
 
 app = Flask(__name__)
-app.secret_key = "dev-secret-key-change-me"  # fine for a course MVP demo
+app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-key-change-me")
 
 
 @app.before_request
@@ -173,4 +174,5 @@ def tracker():
 
 if __name__ == "__main__":
     db.init_db()
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host="0.0.0.0", port=port)
