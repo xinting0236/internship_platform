@@ -5,9 +5,16 @@
 <p class="subtitle">Ranked by fit with your profile - highest match first.</p>
 
 <div class="tabs">
-  <a href="{{ url_for('internships') }}" class="{{ 'active' if not selected_category }}">All</a>
+  <a href="{{ url_for('internships', state=selected_state) }}" class="{{ 'active' if not selected_category }}">All categories</a>
   {% for c in categories %}
-    <a href="{{ url_for('internships', category=c) }}" class="{{ 'active' if selected_category==c }}">{{ c|capitalize }}</a>
+    <a href="{{ url_for('internships', category=c, state=selected_state) }}" class="{{ 'active' if selected_category==c }}">{{ c|capitalize }}</a>
+  {% endfor %}
+</div>
+
+<div class="tabs">
+  <a href="{{ url_for('internships', category=selected_category) }}" class="{{ 'active' if not selected_state }}">All states</a>
+  {% for s in states %}
+    <a href="{{ url_for('internships', category=selected_category, state=s) }}" class="{{ 'active' if selected_state==s }}">{{ s }}</a>
   {% endfor %}
 </div>
 

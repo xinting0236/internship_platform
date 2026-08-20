@@ -64,7 +64,7 @@ The SQLite database (`platform.db`) is created automatically on first run.
 ## Using the app
 
 1. Go to **Profile** and enter your degree, interests, skills, and paste your CV text.
-2. Go to **Matches** to see every internship ranked by fit, with a 🥇🥈🥉❌ priority badge.
+2. Go to **Matches** to see every internship ranked by fit, with a 🥇🥈🥉❌ priority badge. Listings span all 13 Malaysian states plus Kuala Lumpur, Putrajaya, and Remote roles — filter by category or state at the top of the page.
 3. Click into any internship to see:
    - Your match score breakdown
    - The **Should I Apply?** decision and reasoning

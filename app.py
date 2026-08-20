@@ -89,10 +89,16 @@ def internships():
     if category:
         ranked = [r for r in ranked if r["category"] == category]
 
+    state = request.args.get("state")
+    if state:
+        ranked = [r for r in ranked if r.get("state") == state]
+
     categories = sorted({i["category"] for i in all_internships})
+    states = sorted({i.get("state", "Other") for i in all_internships})
     applications = {a["internship_id"]: a["status"] for a in db.get_applications(student["id"])}
     return render_template("internships.html", ranked=ranked, categories=categories,
-                            selected_category=category, applications=applications)
+                            selected_category=category, states=states, selected_state=state,
+                            applications=applications)
 
 
 # ---------------------------------------------------------------- Feature 2 & 3: Match detail

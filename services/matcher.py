@@ -67,8 +67,10 @@ def compute_match(student: dict, internship: dict) -> dict:
     interests = [i.strip().lower() for i in student.get("interests", "").split(",") if i.strip()]
     if internship["category"].lower() in interests:
         interest_score += 0.3
-    if student.get("location", "").strip().lower() == internship["location"].strip().lower() \
-       or internship["location"].lower() == "remote":
+    student_location = student.get("location", "").strip().lower()
+    internship_state = internship.get("state", internship["location"]).strip().lower()
+    if internship["location"].lower() == "remote" or student_location == internship_state \
+       or (student_location and student_location in internship["location"].lower()):
         interest_score += 0.2
     interest_score = min(1.0, interest_score)
 
