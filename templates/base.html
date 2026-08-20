@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}AI Internship Decision & Career Assistant{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="{{ url_for('index') }}">🎯 Internship<span>AI</span></a>
+    <div class="nav-links">
+      <a href="{{ url_for('internships') }}">Matches</a>
+      <a href="{{ url_for('tracker') }}">Tracker</a>
+      <a href="{{ url_for('profile') }}">Profile</a>
+      {% if current_student %}
+        <span class="nav-user">👤 {{ current_student.name }}</span>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+</main>
+
+<footer>
+  <p>AI Internship Decision & Career Assistant — built for the AI Venture course MVP.</p>
+</footer>
+</body>
+</html>

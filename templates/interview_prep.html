@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Interview Prep - InternshipAI{% endblock %}
+{% block content %}
+<h1>{{ internship.title }}</h1>
+<p class="subtitle">{{ internship.company }} · {{ internship.location }}</p>
+
+<div class="feature-tabs">
+  <a href="{{ url_for('internship_detail', internship_id=internship.id) }}">Match & Decision</a>
+  <a href="{{ url_for('cv_optimizer', internship_id=internship.id) }}">CV Optimizer</a>
+  <a class="active" href="{{ url_for('interview_prep', internship_id=internship.id) }}">Interview Prep</a>
+</div>
+
+<div class="card">
+  <h2>🎤 AI Interview Preparation</h2>
+  <p><strong>Opening question:</strong> {{ prep.role_question }}</p>
+</div>
+
+<div class="card">
+  <h2>🛠 Technical / role-specific questions</h2>
+  <ul class="clean">
+    {% for q in prep.technical_questions %}
+      <li>
+        {{ q.question }}
+        {% if q.practice_gap %}<span class="badge badge-warning">practice this — skill gap</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="card">
+  <h2>💬 Behavioral questions</h2>
+  <ul class="clean">
+    {% for q in prep.behavioral_questions %}<li>{{ q }}</li>{% endfor %}
+  </ul>
+</div>
+
+<div class="card">
+  <h2>💡 Tips</h2>
+  <ul class="clean">
+    {% for t in prep.tips %}<li>{{ t }}</li>{% endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Data Analyst Intern",
+    "company": "Northwind Retail",
+    "location": "Kuala Lumpur",
+    "category": "data",
+    "experience_level": "some",
+    "required_skills": {"python": 3, "excel": 2, "sql": 3, "power bi": 2, "data analysis": 3},
+    "nice_to_have_skills": {"tableau": 1, "statistics": 1},
+    "description": "Support the analytics team by cleaning data, building dashboards, and reporting on sales trends.",
+    "deadline": "2026-09-30"
+  },
+  {
+    "id": 2,
+    "title": "Software Engineering Intern",
+    "company": "Byteforge Labs",
+    "location": "Remote",
+    "category": "software",
+    "experience_level": "some",
+    "required_skills": {"python": 2, "javascript": 2, "git": 2, "api development": 2, "problem solving": 2},
+    "nice_to_have_skills": {"react": 1, "docker": 1},
+    "description": "Build and ship features for our internal developer tools alongside a small engineering team.",
+    "deadline": "2026-10-15"
+  },
+  {
+    "id": 3,
+    "title": "Marketing Intern",
+    "company": "Bloom & Co.",
+    "location": "Kuala Lumpur",
+    "category": "marketing",
+    "experience_level": "none",
+    "required_skills": {"marketing": 2, "content writing": 2, "communication": 2},
+    "nice_to_have_skills": {"research": 1},
+    "description": "Plan and execute social campaigns, write content, and analyze campaign performance.",
+    "deadline": "2026-09-20"
+  },
+  {
+    "id": 4,
+    "title": "UX/UI Design Intern",
+    "company": "Studio Frame",
+    "location": "Remote",
+    "category": "design",
+    "experience_level": "none",
+    "required_skills": {"ui/ux design": 3, "communication": 1, "research": 1},
+    "nice_to_have_skills": {"html/css": 1},
+    "description": "Design wireframes and prototypes for a mobile app used by 50,000+ students.",
+    "deadline": "2026-09-25"
+  },
+  {
+    "id": 5,
+    "title": "Machine Learning Intern",
+    "company": "Vector AI",
+    "location": "Remote",
+    "category": "data",
+    "experience_level": "solid",
+    "required_skills": {"python": 3, "machine learning": 3, "statistics": 2, "deep learning": 2},
+    "nice_to_have_skills": {"cloud computing": 1},
+    "description": "Assist the research team in building and evaluating ML models for production use.",
+    "deadline": "2026-10-05"
+  },
+  {
+    "id": 6,
+    "title": "Business Analyst Intern",
+    "company": "Meridian Consulting",
+    "location": "Kuala Lumpur",
+    "category": "business",
+    "experience_level": "none",
+    "required_skills": {"excel": 2, "communication": 2, "problem solving": 2, "research": 1},
+    "nice_to_have_skills": {"power bi": 1},
+    "description": "Support client engagements with data gathering, slide decks, and process analysis.",
+    "deadline": "2026-09-18"
+  },
+  {
+    "id": 7,
+    "title": "Finance Intern",
+    "company": "Harbor Capital",
+    "location": "Kuala Lumpur",
+    "category": "finance",
+    "experience_level": "some",
+    "required_skills": {"financial modeling": 3, "excel": 2, "accounting": 2},
+    "nice_to_have_skills": {"excel vba": 1},
+    "description": "Support the finance team with budgeting, forecasting, and reporting.",
+    "deadline": "2026-10-01"
+  },
+  {
+    "id": 8,
+    "title": "Product Management Intern",
+    "company": "Loopwise",
+    "location": "Remote",
+    "category": "product",
+    "experience_level": "some",
+    "required_skills": {"product management": 3, "communication": 2, "research": 1, "problem solving": 2},
+    "nice_to_have_skills": {"sql": 1},
+    "description": "Work directly with the founder to gather user feedback and shape the product roadmap.",
+    "deadline": "2026-09-28"
+  },
+  {
+    "id": 9,
+    "title": "Frontend Developer Intern",
+    "company": "Pixel Nova",
+    "location": "Remote",
+    "category": "software",
+    "experience_level": "some",
+    "required_skills": {"javascript": 2, "react": 2, "html/css": 2, "git": 1},
+    "nice_to_have_skills": {"ui/ux design": 1},
+    "description": "Build responsive UI components for a fast-growing SaaS product.",
+    "deadline": "2026-10-10"
+  },
+  {
+    "id": 10,
+    "title": "Data Science Intern",
+    "company": "Insight Grid",
+    "location": "Kuala Lumpur",
+    "category": "data",
+    "experience_level": "some",
+    "required_skills": {"python": 3, "statistics": 2, "sql": 2, "machine learning": 2},
+    "nice_to_have_skills": {"r": 1},
+    "description": "Analyze customer datasets and prototype predictive models for the growth team.",
+    "deadline": "2026-09-22"
+  }
+]
