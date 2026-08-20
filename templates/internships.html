@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Your Matches - InternshipAI{% endblock %}
+{% block content %}
+<h1>🎯 AI Internship Matcher</h1>
+<p class="subtitle">Ranked by fit with your profile - highest match first.</p>
+
+<div class="tabs">
+  <a href="{{ url_for('internships', state=selected_state) }}" class="{{ 'active' if not selected_category }}">All categories</a>
+  {% for c in categories %}
+    <a href="{{ url_for('internships', category=c, state=selected_state) }}" class="{{ 'active' if selected_category==c }}">{{ c|capitalize }}</a>
+  {% endfor %}
+</div>
+
+<div class="tabs">
+  <a href="{{ url_for('internships', category=selected_category) }}" class="{{ 'active' if not selected_state }}">All states</a>
+  {% for s in states %}
+    <a href="{{ url_for('internships', category=selected_category, state=s) }}" class="{{ 'active' if selected_state==s }}">{{ s }}</a>
+  {% endfor %}
+</div>
+
+<div class="card">
+  {% for r in ranked %}
+    <div class="match-row">
+      <div style="--pct: {{ r.match.score }}" class="score-ring">
+        <div class="score-ring-inner">{{ r.match.score }}%</div>
+      </div>
+      <div class="match-row-info">
+        <div class="match-row-title">{{ r.tier.emoji }} {{ r.title }} · {{ r.company }}</div>
+        <div class="match-row-sub">{{ r.location }} · deadline {{ r.deadline }}
+          {% if applications.get(r.id) %} · <span class="badge badge-neutral">{{ applications.get(r.id) }}</span>{% endif %}
+        </div>
+      </div>
+      <span class="badge badge-{{ r.decision.tone }}">{{ r.decision.label }}</span>
+      <a class="btn btn-sm" href="{{ url_for('internship_detail', internship_id=r.id) }}">View</a>
+    </div>
+  {% else %}
+    <p class="hint">No internships match this filter.</p>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}CV Optimizer - InternshipAI{% endblock %}
+{% block content %}
+<h1>{{ internship.title }}</h1>
+<p class="subtitle">{{ internship.company }} · {{ internship.location }}</p>
+
+<div class="feature-tabs">
+  <a href="{{ url_for('internship_detail', internship_id=internship.id) }}">Match & Decision</a>
+  <a class="active" href="{{ url_for('cv_optimizer', internship_id=internship.id) }}">CV Optimizer</a>
+  <a href="{{ url_for('interview_prep', internship_id=internship.id) }}">Interview Prep</a>
+</div>
+
+<div class="card">
+  <h2>📄 AI CV Optimizer</h2>
+  <p class="hint">{{ analysis.ats_tip }}</p>
+  <p>Keyword coverage for this role: <strong>{{ analysis.ats_score }}%</strong></p>
+  {% if analysis.length_tip %}<p class="hint">💡 {{ analysis.length_tip }}</p>{% endif %}
+</div>
+
+<div class="card">
+  <h2>➕ Skills to add or highlight</h2>
+  {% if analysis.missing_in_cv %}
+    <ul class="clean">
+      {% for m in analysis.missing_in_cv %}
+        <li><strong>{{ m.skill }}</strong> ({{ 'High' if m.weight>=3 else ('Medium' if m.weight==2 else 'Low') }} impact)
+          <br><span class="hint">{{ m.suggestion }}</span></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="hint">Your CV already reflects all the required skills for this role. 🎉</p>
+  {% endif %}
+</div>
+
+{% if analysis.present_but_not_in_cv %}
+<div class="card">
+  <h2>✍️ Mentioned in your profile but not in your CV text</h2>
+  <p class="hint">You listed these as skills you have, but they don't appear in your CV text — add them so recruiters (and ATS software) actually see them.</p>
+  <div>
+    {% for s in analysis.present_but_not_in_cv %}<span class="skill-chip">{{ s }}</span>{% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% if analysis.trim_suggestions %}
+<div class="card">
+  <h2>✂️ Phrases to trim</h2>
+  <p class="hint">These are generic filler phrases that don't add much - replace them with a specific example instead.</p>
+  <div>
+    {% for p in analysis.trim_suggestions %}<span class="skill-chip missing">{{ p }}</span>{% endfor %}
+  </div>
+</div>
+{% endif %}
+{% endblock %}
